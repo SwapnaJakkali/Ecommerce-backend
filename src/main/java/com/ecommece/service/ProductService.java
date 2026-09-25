@@ -68,7 +68,7 @@ public class ProductService {
                 .orElseThrow(() -> new ResourceNotFoundException("Product not found with id: " + id));
         return mapToDto(product);
     }
-
+//
     private ProductDto mapToDto(Product product) {
         return new ProductDto(
                 product.getId(),
