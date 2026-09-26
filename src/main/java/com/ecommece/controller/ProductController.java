@@ -37,6 +37,11 @@ public class ProductController {
         return ResponseEntity.ok(productService.getProductById(id));
     }
 
+    @GetMapping("/category/{categoryId}")
+    public ResponseEntity<List<ProductDto>> getProductsByCategory(@PathVariable Long categoryId) {
+        return ResponseEntity.ok(productService.getProductsByCategoryId(categoryId));
+    }
+
     @PostMapping(consumes = {"multipart/form-data"})
     public ResponseEntity<ProductDto> createProduct(
             @RequestPart("product") ProductDto productDto,

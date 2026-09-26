@@ -68,6 +68,11 @@ public class ProductService {
                 .orElseThrow(() -> new ResourceNotFoundException("Product not found with id: " + id));
         return mapToDto(product);
     }
+
+    public List<ProductDto> getProductsByCategoryId(Long categoryId) {
+        List<Product> products = productRepository.findByCategoryId(categoryId);
+        return products.stream().map(this::mapToDto).collect(Collectors.toList());
+    }
 //
     private ProductDto mapToDto(Product product) {
         return new ProductDto(
